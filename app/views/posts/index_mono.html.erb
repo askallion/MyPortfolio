@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" />
+<link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-2-1/css/6-2-1.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+  <h1 class="index-title">
+    <h1 class="index-title"><%= link_to index_green_posts_path do %>
+  <i class="fas fa-caret-left"></i>
+  <% end %><span class="mono-title">Mono posts</span>
+  <%= link_to index_red_posts_path do %>
+  <i class="fas fa-caret-right"></i><% end %>
+  </h1>
+ 
+  <ul class="gallery">
+  <% @posts.each_with_index do |post, index| %>
+  <li>
+        <a href="<%= attachment_url(post, :image) %>" data-lightbox="gallery1" data-title="<%= post.name %>">
+          <%= link_to post_path(post.id) do %>
+          <img src="<%= attachment_url(post, :image, :fill, 300, 300) %>" alt="投稿 <%= index + 1 %>">
+          <% end %>
+        </a>
+      </li>
+  <% end %>
+</ul>
+
+<br>
+<%= link_to 'Back to Posts', posts_path, class: 'btn btn-secondary show-btn color-show-btn' %>
+<!--/wrapper--></div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>
+<script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-2-1/js/6-2-1.js"></script>
+</body>
+</html>

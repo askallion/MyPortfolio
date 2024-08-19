@@ -1,0 +1,198 @@
+h1{
+  text-align: center;
+}
+
+.welcome{
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  font-size: 40px;
+}
+
+.my-profile{
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  margin: 35px 0px;
+}
+
+.my-profile-border{
+  width: 30%;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px gray;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+body {
+  margin: 0;
+  padding: 0;
+  background: lightgoldenrodyellow;
+}
+.paper {
+  position: absolute;
+  height: 550px;
+  width: 450px;
+  background: rgba(255,255,255,0.9);
+  margin: -275px -225px;
+  left: 50%;
+  top: 50%;
+  box-shadow: 0px 0px 5px 0px #888;
+}
+.paper::before {
+  content: '';
+  position: absolute;
+  left: 45px;
+  height: 100%;
+  width: 2px;
+  background: rgba(255,0,0,0.4);
+}
+.lines {
+  margin-top: 40px;
+  height: calc(100% - 40px);
+  width: 100%;
+  background-image: repeating-linear-gradient(white 0px, white 24px, steelblue 25px);
+}
+.text {
+  position: absolute;
+  top: 65px;
+  left: 55px;
+  bottom: 10px;
+  right: 10px;
+  line-height: 25px;
+  font-family: 'Indie Flower';
+  overflow: hidden;
+  outline: none;
+}
+.holes {
+  position: absolute;
+  left: 10px;
+  height: 25px;
+  width: 25px;
+  background: lightgoldenrodyellow;
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 2px 0px #888;
+}
+.hole-top {
+  top: 10%;
+}
+.hole-middle {
+  top: 50%;
+}
+.hole-bottom {
+  bottom: 10%;
+}
+
+
+
+.contents-top{
+  font-size: 25px;
+  padding: 3px;
+  border-bottom: dashed 3px grey;
+}
+
+.contents-inside{
+  font-size: 20px;
+  text-align: center;
+}
+
+.frex-container{
+  display: flex;
+  height: 500px;
+  justify-content: center;
+}
+
+.flex-item{
+  margin: 20px;
+}
+
+.simple-circle {
+  width: 125px;
+  height: 125px;
+  border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(62, 65, 68);
+  color: white;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  box-shadow: 0px 0px 7.5px 0px #888;
+}
+
+.simple-circle:hover {
+  width: 125px;
+  height: 125px;
+  border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(62, 65, 68);
+  color: white;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  box-shadow: 0px 0px 5px 0px #888;
+}
+
+
+.profile-picture{
+ border-radius: 50%;
+ object-fit: cover;
+ margin: 10px;
+}
+
+
+.not-login{
+  font-size: 30px;
+  text-align: center;
+}
+
+.welcome{
+  font-size: 65px;
+}
+
+.top-welcome{
+  margin: 20px auto;
+  width: 650px;
+}
+
+
+.header.red {
+  background-color: red;
+}
+
+.header.blue {
+  background-color: blue;
+}
+
+.header.green {
+  background-color: green;
+}
+
+.header.mono {
+  background-color: gray; /* monoの場合、例としてグレーを使用 */
+}
+
+.navbar.red {
+  background-color: red !important;
+}
+
+.navbar.blue {
+  background-color: blue !important;
+}
+
+.navbar.green {
+  background-color: green !important;
+}
+
+.navbar.mono {
+  background-color: gray !important; /* monoの場合、例としてグレーを使用 */
+}
+
+.button-link.simple-button.simple-circle.like-heart{
+  font-size: 40px;
+}

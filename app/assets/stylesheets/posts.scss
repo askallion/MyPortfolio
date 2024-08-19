@@ -1,0 +1,441 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.index-title{
+  margin-top: 25px;
+}
+
+.card-list-container{
+  padding: 0px;
+}
+
+.your-carousel-class .slick-slide {
+  padding: 10px;
+}
+
+/* カルーセル全体の設定 */
+.carousel {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* カルーセル内のアイテム設定 */
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 各カルーセルアイテムの設定 */
+.carousel-item {
+  position: relative;
+  display: none;
+  -webkit-transition: 0.6s ease-in-out left;
+  transition: 0.6s ease-in-out left;
+}
+
+/* アクティブなアイテムのみを表示 */
+.carousel-item.active {
+  display: block;
+}
+
+/* カルーセルコントロールの設定 */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 100%, 100%;
+}
+
+.img-size {
+  width: 500px; /* 幅を500pxに固定 */
+  height: 500px; /* 高さを500pxに固定 */
+  object-fit: cover; /* 画像が枠にフィットするように調整 */
+}
+
+/* カードの全体的なサイズとレイアウト */
+.card {
+  width: 500px; /* カードの幅も500pxに固定 */
+}
+
+/* カルーセル内の画像が枠に合わせて表示されるように調整 */
+.carousel-item {
+  display: flex;
+  justify-content: center; /* 画像を中央に配置 */
+  align-items: center;
+}
+
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    outline: black;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-size: 100%, 100%;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.visually-hidden{
+  color: black;
+}
+
+.arrow_right {
+  position: relative;
+  padding-left: 25px;
+}
+
+.arrow_right::before { /* くの字の表示設定 */
+  content: "";
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2px;
+  width: 13px;    /* くの字を山なりに見た時、左側の長さ */
+  height: 13px;   /* くの字を山なりに見た時、右側の長さ */
+  border-top: 3px solid #000;     /* くの字を山なりに見た時、左側の太さと色 */
+  border-right: 3px solid #000;   /* くの字を山なりに見た時、右側の太さと色 */
+  transform: rotate(45deg);    /* くの字の向き */
+}
+
+.arrow_left {
+  position: relative;
+  padding-left: 25px;
+}
+
+.arrow_left::before {
+  content: "";
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2px;
+  width: 13px;    /* くの字を山なりに見た時、左側の長さ */
+  height: 13px;   /* くの字を山なりに見た時、右側の長さ */
+  border-top: 3px solid #000;     /* くの字を山なりに見た時、左側の太さと色 */
+  border-right: 3px solid #000;   /* くの字を山なりに見た時、右側の太さと色 */
+  transform: rotate(-135deg);  /* くの字の向きを反転 */
+}
+
+.tags-navigation.btn-allindex{
+ margin: 20px auto;
+  width: 450px;
+}
+
+.index-title{
+  font-size: 50px;
+}
+
+.index-post-name{
+  margin-right: 30px;
+  font-size: 30px;
+}
+
+.index-tag-name{
+  margin: 0 30px;
+  font-size: 30px;
+}
+
+.index-bar{
+  font-size: 30px;
+}
+
+
+.gallery{
+columns: 4;/*段組みの数*/
+padding:0 15px;/*ギャラリー左右に余白をつける*/
+}
+
+.gallery li {
+    margin-bottom: 20px;/*各画像下に余白をつける*/
+}
+
+/*ギャラリー内のイメージは横幅100%にする*/
+.gallery img{
+  width:100%;
+  height:auto;
+  vertical-align: bottom;/*画像の下にできる余白を削除*/}
+
+/*　横幅900px以下の段組み設定　*/
+@media only screen and (max-width: 900px) {
+  .gallery{
+  columns:3;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .gallery{
+  columns: 2;
+  }
+}
+
+
+/*========= レイアウトのためのCSS ===============*/
+
+ul{
+  margin:0;
+  padding: 0;
+  list-style: none;
+}
+
+a{
+  color: #333;
+}
+
+a:hover,
+a:active{
+  text-decoration: none;
+}
+
+h1{
+  text-align: center;
+  font-size:6vw;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin:30px 0;
+}
+
+p{
+  margin:0 10px 10px 10px;
+  word-wrap : break-word;
+}
+
+/*画像を出現させるアニメーションCSS*/
+
+.flipLeft{
+animation-name: flipLeft;
+animation-duration:0.5s;
+animation-fill-mode:forwards;
+perspective-origin: left center;
+opacity: 0;
+}
+
+@keyframes flipLeft{
+  from {
+   transform: perspective(600px) translate3d(0, 0, 0) rotateY(30deg);
+  opacity: 0;
+  }
+
+  to {
+  transform: perspective(600px) translate3d(0, 0, 0) rotateY(0deg);
+  opacity: 1;
+  }
+}
+
+
+.post-title{
+  margin-top: 30px;
+  font-size: 50px;
+}
+
+.new-post-box{
+  margin: 20px auto;
+  width: 500px;
+  border: 1px solid;
+  border-radius: 15px;
+  padding-left: 20px;
+  box-shadow: 2px 2px 10px gray;
+}
+
+.field{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.post-btn{
+  margin: 20px 35%;
+}
+
+.new-content-name{
+  margin: 10px 0;
+}
+
+.custom-submit-button {
+  background-color: #4CAF50; /* ボタンの背景色 */
+  color: white; /* テキストの色 */
+  padding: 10px 20px; /* パディング */
+  border: none; /* ボーダーなし */
+  border-radius: 5px; /* ボーダーの丸み */
+  font-size: 16px; /* フォントサイズ */
+  cursor: pointer; /* ホバー時のカーソル */
+  width: 140px;
+  margin-top: 10px;
+}
+
+.custom-submit-button:hover {
+  background-color: #45a049; /* ホバー時の背景色 */
+}
+
+
+.post-title-show{
+  margin-bottom: 40px;
+}
+
+
+.f-container{
+  display:flex;
+}
+
+.f-container{
+  display:flex;
+
+}
+
+.f-item-picture{
+  margin: 0 0 0 20%;
+}
+
+.f-item-contents{
+  margin: 0 20% 0 5%;
+  font-size: 20px;
+}
+
+.show-content-name{
+  font-weight: bold;
+}
+
+.photo04 {
+  display: inline-block;
+  padding: 1px;
+  background: #000000;
+  box-shadow: 5px 5px 3px #bbbbbb;
+}
+.photo04 img {
+  padding: 10px 10px 30px;
+  background: #fff;
+}
+
+.btn-contents{
+  margin-top: 20px;
+}
+
+.show-delate{
+  margin-right: 10px;
+}
+
+
+
+.top-back{
+  margin-right: 1px;
+  width: 140px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.top-back:hover{
+  margin-right: 1px;
+  width: 140px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.navbar.red {
+  background-color: red !important;
+}
+
+.navbar.blue {
+  background-color: blue !important;
+}
+
+.navbar.green {
+  background-color: green !important;
+}
+
+.navbar.mono {
+  background-color: gray !important;
+}
+
+.navbar {
+  background-color: #343a40 !important; /* デフォルトのbg-dark色 */
+}
+
+
+
+.btn.btn-primary.btn-index{
+   width: 125px;
+  height: 75px;
+  border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(62, 65, 68);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.btn.btn-primary.btn-index.btn-red{
+  background-color: #8a0000;
+  border: 1px solid #8a0000;
+}
+
+.btn.btn-primary.btn-index.btn-blue{
+  background-color: #00098a;
+  border: 1px solid #00098a;
+}
+
+.btn.btn-primary.btn-index.btn-green{
+  background-color: #015f25;
+  border: 1px solid #015f25;
+}
+
+.btn.btn-primary.btn-index.btn-green{
+  background-color: #015f25;
+  border: 1px solid #015f25;
+}
+
+.btn.btn-primary.btn-index.btn-mono{
+  background-color: #5a5a5a;
+  border: 1px solid #5a5a5a;
+}
+
+.red-title{
+  color: #8a0000;
+}
+
+.blue-title{
+  color: #00098a;
+}
+
+.green-title{
+  color: #015f25;
+}
+
+
+
+.gallery{
+  padding: 0px;
+  margin: 0 auto;
+}
+
+.like-heart{
+  font-size: 50px;
+}
+
+.like-heart.push{
+  color: red;
+}
+
+.heart-box{
+  border: 1px solid;
+  text-align: center;
+  border-radius: 10px;
+  margin-left: 30px;
+  box-shadow: 0px 0px 5px lightgray;
+}
+
+.btn.btn-secondary.show-btn{
+  margin-top: 30px;
+}
+
+.btn.btn-secondary.show-btn.color-show-btn{
+  width: 125px;
+  margin: 10px 20px;
+}

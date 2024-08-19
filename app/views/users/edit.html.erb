@@ -1,0 +1,44 @@
+
+<%= form_for(@user, url: users_edit_path(@user)) do |f| %>
+
+<div class = "edit-user">
+<table>
+  <h1 class="post-title post-title-user">User edit</h1>
+
+  <% if @user.errors.any? %>
+ <div class="errors">
+  <p class="errors-title"><%= @user.errors.count %>error prohibited this obj from being saved:</p>
+  <ul>
+  <% @user.errors.full_messages.each do |message| %>
+    <li class="errors-body"><%= message %></li>
+  <% end %>
+  </ul>
+ </div>
+<% end %>
+
+  <div class="new-post-box">
+   <div class="field field-first">
+    <%= f.label :profile_picture, class: "new-content-name" %><br>
+    <%= f.file_field :profile_picture %>
+   </div>
+
+  <div class="field">
+    <%= f.label :name, class: "new-content-name" %><br>
+    <%= f.text_field :name,style: "width: 450px; height: 40px;" %>
+  </div>
+
+  <div class="field field-end">
+    <%= f.label :caption, class: "new-content-name" %><br>
+    <%= f.text_field :caption,style:"width: 450px; height: 80px;" %>
+  </div>
+
+  <div class="actions post-btn post-btn-user">
+    <%= f.submit "Update Profile", class: 'custom-submit-button' %>
+  </div>
+<% end %>
+
+</div>
+
+<div class="frex-container">
+  <div class="frex-item"><%= link_to 'Back', root_path, class: "button-link simple-button simple-circle top-back" %></div>
+</div>

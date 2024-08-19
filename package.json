@@ -1,0 +1,8 @@
+{
+  "name": "colors",
+  "private": true,
+  "dependencies": {
+    "bootstrap-icons": "^1.11.3",
+    "slick-carousel": "^1.8.1"
+  }
+}

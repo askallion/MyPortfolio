@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" />
+<link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-2-1/css/6-2-1.css">
+</head>
+
+<h1 class="post-title post-title-show">post detail</h1>
+
+<div class="f-container">
+  <div class="f-item f-item-picture">
+    <a href="<%= attachment_url(@post, :image) %>" data-lightbox="gallery1" data-title="<%= @post.name %>">
+  <%= attachment_image_tag @post, :image, size: "500x500", class: 'photo04' %>
+    </a>
+    <br>
+    <%= link_to 'Back', request.referer || root_path, class: 'btn btn-secondary show-btn' %>
+  </div>
+  
+  <div class="f-item f-item-contents">
+  <p class="show-content-name">・Title・</p>
+  <p><%= @post.name %></p>
+  <p class="show-content-name">・Caption・</p>
+  <p><%= @post.body %></p>
+  <p class="show-content-name">・Post user・</p>
+  <p><%= @post.user.present? ? @post.user.name : '不明' %></p>
+  <p class="show-content-name">・Date・</p>
+  <p><%= @post.created_at.strftime('%Y/%m/%d') %></p>
+  
+  <br>
+  
+  <div class="heart-box">
+  <% if current_user.liked_posts.include?(@post) %>
+  <%= link_to '♥', post_like_path(@post), method: :delete, class: 'like-heart push' %>
+  <% else %>
+  <%= link_to '♡', post_like_path(@post), method: :post, class: 'like-heart non-push' %>
+  <% end %>
+
+  <p><%= @post.likes.count %> いいね</p>
+
+  </div>
+  
+　<div class="btn-contents show-btn-box">
+  <% if @post.user == current_user %>
+    <%= link_to '削除', post_path(@post), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger show-delate' %>
+  <% end %>
+  
+  </div>
+  
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>
+<script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-2-1/js/6-2-1.js"></script>
+</body>
+</html>

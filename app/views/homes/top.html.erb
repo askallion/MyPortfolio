@@ -1,0 +1,107 @@
+<head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<div class="top-welcome">
+<% if user_signed_in? %>
+<h1 class="welcome">My Page</h1>
+<% else %>
+<h1 class="welcome">
+  <i class="fas fa-palette"></i>
+  Colors
+</h1>
+<% end %>
+</div>
+
+<% if user_signed_in? %>
+
+<div class="my-profile">
+<div class="my-profile-border">
+
+<h4 class="contents-top top-title">My Profile</h4>
+
+<% if current_user %>
+  <% if current_user.profile_picture.attached? %>
+    <%= image_tag url_for(current_user.profile_picture), alt: 'Profile Picture', size: '150x150', class: 'profile-picture' %>
+  <% else %>
+    <%= image_tag 'default-image.jpg', alt: 'Default Image', size: '150x150' %>
+  <% end %>
+<% else %>
+  <p>Please log in to see your profile picture.</p>
+<% end %>
+
+<h4 class="top-title">Name</h4>
+<% if current_user %>
+  <p class="contents-inside"><%= current_user.name %></p>
+  <h4 class="top-title">Caption</h4>
+  <p class="contents-inside"><%= current_user.caption %></p>
+<% else %>
+  <p>Please log in to view your profile information.</p>
+<% end %>
+
+</div>
+</div>
+
+<div class="frex-container">
+  <div class="frex-item"><%= link_to 'Edit Profile', edit_user_registration_path, class: "button-link simple-button simple-circle" %></div>
+  <div class="frex-item"><%= link_to 'Create post', new_post_path, class: "button-link simple-button simple-circle" %></div>
+  <div class="frex-item"><%= link_to 'Posts', posts_path, class: "button-link simple-button simple-circle" %></div>
+  <div class="frex-item" ><%= link_to '♥', likes_user_path(current_user), class: "button-link simple-button simple-circle like-heart" %></div>
+</div>
+ 
+ <% else %>
+ <br>
+ <p class="not-login">
+     Please login and view more!
+ </p>
+ 
+ <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <% @posts.each_with_index do |post, index| %>
+      <div class="carousel-item <%= 'active' if index.zero? %>">
+        <div class="card w-50 mx-auto mt-4 shadow-lg">
+          
+            <%= attachment_image_tag post, :image,class: "card-img-top img-size" %>
+
+          <div class="card-body">
+            <div class="row">
+              <div class="col-2">
+                
+              </div>
+              <div class="col-10">
+                <p class="card-title">
+                  <%= link_to(post_path(post.id), class: "text-dark") do %>
+                    <strong>
+                      <span class="index-post-name"><%= post.name %></span>
+                      <span class="index-bar">|</span>
+                      <span class="index-tag-name"><i class="far fa-bookmark"></i> <%= post.tag.name %></span>
+                    </strong>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+ 
+ 
+ 
+  <!-- Carousel Controls -->
+  <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" role="button" data-slide="prev">
+    <p class="arrow_left visually-hidden">Previous</p>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleSlidesOnly" role="button" data-slide="next">
+     <p class="visually-hidden">Next</p>
+     <p class="arrow_right"></p>
+  </a>
+</div>
+
+ <% end %>

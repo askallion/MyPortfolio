@@ -1,0 +1,75 @@
+<head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<h1 class="index-title">
+  Welcome to Colors!
+</h1>
+
+
+
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="3000">
+  <div class="carousel-inner">
+    <% @posts.each_with_index do |post, index| %>
+      <div class="carousel-item <%= 'active' if index.zero? %>">
+        <div class="card w-50 mx-auto mt-4 shadow-lg">
+          <%= link_to post_path(post.id) do %>
+            <%= attachment_image_tag post, :image,class: "card-img-top img-size" %>
+          <% end %>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-2">
+                <% if post.user.profile_picture.attached? %>
+                  <%= image_tag url_for(post.user.profile_picture), alt: 'Profile Picture', size: '75x75', class: "mt-3 rounded-circle" %>
+                <% else %>
+                  <%= image_tag 'default-image.jpg', alt: 'Default Image', size: '75x75', class: "mt-3 rounded-circle" %>
+                <% end %>
+
+              </div>
+              <div class="col-10">
+                <p class="card-title">
+                  <%= link_to(post_path(post.id), class: "text-dark") do %>
+                    <strong>
+                      <span class="index-post-name"><%= post.name %></span>
+                      <span class="index-bar">|</span>
+                      <span class="index-tag-name"><i class="far fa-bookmark" style="color: <%= tag.color %> !important;"></i> <%= post.tag.name %></span>
+                    </strong>
+                  <% end %>
+                </p>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+  <!-- Carousel Controls -->
+  <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" role="button" data-slide="prev">
+    <p class="arrow_left visually-hidden">Previous</p>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleSlidesOnly" role="button" data-slide="next">
+     <p class="visually-hidden">Next</p>
+     <p class="arrow_right"></p>
+  </a>
+</div>
+
+
+
+
+
+<div class="tags-navigation btn-allindex frex-container">
+  <div class="btn-container flex-item"><%= link_to 'Red', index_red_posts_path, class: 'btn btn-primary btn-index btn-red' %></div>
+  <div class="btn-container flex-item"><%= link_to 'Blue', index_blue_posts_path, class: 'btn btn-primary btn-index btn-blue' %></div>
+  <div class="btn-container flex-item"><%= link_to 'Green', index_green_posts_path, class: 'btn btn-primary btn-index btn-green' %></div>
+  <div class="btn-container flex-item"><%= link_to 'Mono', index_mono_posts_path, class: 'btn btn-primary btn-index btn-mono' %></div>
+</div>

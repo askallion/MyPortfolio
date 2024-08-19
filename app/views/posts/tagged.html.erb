@@ -1,0 +1,17 @@
+<!-- app/views/posts/tagged.html.erb -->
+
+<h1>Posts tagged with "<%= @tag %>"</h1>
+
+<% if @posts.any? %>
+  <ul>
+    <% @posts.each do |post| %>
+      <li>
+        <h2><%= link_to post.title, post_path(post) %></h2>
+        <p><%= truncate(post.content, length: 100) %></p>
+        <p>Tags: <%= post.tags.map(&:name).join(", ") %></p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No posts found with the tag "<%= @tag %>".</p>
+<% end %>

@@ -1,0 +1,50 @@
+
+<h1 class="post-title">Post Form</h1>
+<%= form_for(@post, local: true) do |f| %>
+
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+　<div class="new-post-box">
+　<div class="field">
+  <%= f.label :image, class: "new-content-name" %>
+  <%= f.attachment_field :image %>
+  </div>
+
+  <div class="field">
+  <%= f.label :name, class: "new-content-name" %>
+  <br>
+  <%= f.text_field :name,style: "width: 450px; height: 40px;" %>
+  </div>
+
+  <div class="field">
+  <%= f.label :body, class: "new-content-name" %>
+  <br>
+  <%= f.text_area :body ,style:"width: 450px; height: 80px;" %>
+  </div>
+
+  <div class="field">
+  <%= f.label :tag_id, 'Tag', class: "new-content-name" %>
+  <br>
+  <%= f.collection_select :tag_id, Tag.all, :id, :name %>
+  </div>
+
+  <br>
+  <div class="post-btn">
+  <%= f.submit 'Create Post', class: 'custom-submit-button' %>
+  </div>
+ </div>
+
+<% end %>
+
+<div class="frex-container">
+  <div class="frex-item"><%= link_to 'Back', root_path, class: "button-link simple-button simple-circle top-back" %></div>
+</div>
