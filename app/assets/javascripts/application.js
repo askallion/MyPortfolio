@@ -89,3 +89,7 @@ $('.gallery li').each(function(){
   $(window).on('load', function(){
     fadeAnime();/* アニメーション用の関数を呼ぶ*/
   });// ここまでページが読み込まれたらすぐに動かしたい場合の記述
+  
+import "slick-carousel/slick/slick.min.js";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
