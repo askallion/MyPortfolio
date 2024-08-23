@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
 
-   resources :users
+   #resources :users
    resources :posts do
     collection do
       get 'index_red'
