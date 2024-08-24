@@ -24,72 +24,70 @@
 //= require_tree .
 
 import $ from 'jquery';
-// app/assets/javascripts/application.js
-import "slick-carousel";
 
-// ドキュメントが読み込まれた後にカルーセルを初期化する
-let current = 0
-const carousel = document.querySelector('.carousel')
-const carousels = document.querySelectorAll('.carousel__section')
-const total = carousels.length
+//import "slick-carousel";
 
-function showSection() {
-  carousel.style.transform = `translateX(${-current * 100}%)`
-}
+//let current = 0
+//const carousel = document.querySelector('.carousel')
+//const carousels = document.querySelectorAll('.carousel__section')
+//const total = carousels.length
 
-function prevSection() {
-  current = current === 0 ? total - 1 : current - 1
-  showSection()
-}
+//function showSection() {
+  //carousel.style.transform = `translateX(${-current * 100}%)`
+//}
 
-function nextSection() {
-  current = (current + 1) % total
-  showSection()
-}
+//function prevSection() {
+  //current = current === 0 ? total - 1 : current - 1
+  //showSection()
+//}
 
-const btnLeft = document.querySelector('.carousel__button-left')
-const btnRight = document.querySelector('.carousel__button-right')
+//function nextSection() {
+  //current = (current + 1) % total
+  //showSection()
+//}
 
-btnLeft.addEventListener('click', prevSection)
-btnRight.addEventListener('click', nextSection)
+//const btnLeft = document.querySelector('.carousel__button-left')
+//const btnRight = document.querySelector('.carousel__button-right')
 
-import 'bootstrap'
+//btnLeft.addEventListener('click', prevSection)
+//btnRight.addEventListener('click', nextSection)
 
+//import 'bootstrap'
 
 
 
 
-glightbox.option({
-  'wrapAround': true,//グループ最後の写真の矢印をクリックしたらグループ最初の写真に戻る
-  'albumLabel': ' %1 / total %2 '//合計枚数中現在何枚目かというキャプションの見せ方を変更できる
-})
+
+//ightbox.option({
+  //'wrapAround': true,//グループ最後の写真の矢印をクリックしたらグループ最初の写真に戻る
+  //'albumLabel': ' %1 / total %2 '//合計枚数中現在何枚目かというキャプションの見せ方を変更できる
+//})
 
 //ふわっと見せるためのJS。3-5-3 ページが読み込まれたらすぐに動かしたい&画面をスクロールをしたら動かしたい場合内のソースコード使用
 
-function fadeAnime(){
-// flipLeft
-$('.gallery li').each(function(){ 
-    var elemPos = $(this).offset().top;
-    var scroll = $(window).scrollTop();
-    var windowHeight = $(window).height();
-    if (scroll >= elemPos - windowHeight){
-        $(this).addClass('flipLeft');
-    }else{
-        $(this).removeClass('flipLeft');
-    }
-});
-}
+//function fadeAnime(){
+//$('.gallery li').each(function(){ 
+    //var elemPos = $(this).offset().top;
+    //var scroll = $(window).scrollTop();
+    //var windowHeight = $(window).height();
+    //if (scroll >= elemPos - windowHeight){
+        //$(this).addClass('flipLeft');
+    //}else{
+        //$(this).removeClass('flipLeft');
+    //}
+//});
+//}
 
 // 画面をスクロールをしたら動かしたい場合の記述
-  $(window).scroll(function (){
-    fadeAnime();/* アニメーション用の関数を呼ぶ*/
-  });// ここまで画面をスクロールをしたら動かしたい場合の記述
+  //$(window).scroll(function (){
+    //fadeAnime();/* アニメーション用の関数を呼ぶ*/
+  //});// ここまで画面をスクロールをしたら動かしたい場合の記述
 
 // ページが読み込まれたらすぐに動かしたい場合の記述
-  $(window).on('load', function(){
-    fadeAnime();/* アニメーション用の関数を呼ぶ*/
-  });// ここまでページが読み込まれたらすぐに動かしたい場合の記述
+  //$(window).on('load', function(){
+    //fadeAnime();/* アニメーション用の関数を呼ぶ*/
+  //});// ここまでページが読み込まれたらすぐに動かしたい場合の記述
   
-import "slick-carousel/slick/slick.min.js";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+//import "slick-carousel/slick/slick.min.js";
+//import "slick-carousel/slick/slick.css";
+//import "slick-carousel/slick/slick-theme.css";
