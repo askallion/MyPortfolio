@@ -23,7 +23,7 @@
 //= require turbolinks
 //= require_tree .
 
-import $ from 'jquery';
+//import $ from 'jquery';
 
 //import "slick-carousel";
 
